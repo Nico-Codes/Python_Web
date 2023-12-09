@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template import loader
 
 def saludo(request):
     return HttpResponse("Hola Django - nico")
@@ -22,10 +23,7 @@ def probando_template(request):
     lista_de_notas = [1,2,3,4,8,3,2]
 
     diccionario = {"nombre": nombre, "apellido": apellido, "hoy": datetime.datetime.now(), "notas": lista_de_notas}
-    mi_html = open("/Users/nicol/TuPrimeraPaginaMachado/Proyecto1/Proyecto1/templates/template1.html", "r")
-    plantilla = Template(mi_html.read())
-    mi_html.close()
-    mi_contexto = Context(diccionario)
-    documento = plantilla.render(mi_contexto)
+    mi_html = loader.get_template("template1.html")
+    documento = plantilla.render(diccionario)
 
     return HttpResponse(documento)
