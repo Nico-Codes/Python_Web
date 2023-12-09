@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-AU-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style="color: red">Mi nombre es: {{nombre}} </p>
+    <p style="color: green">Mi apellido es: {{apellido}}  </p>
+
+    <h1>Este template fue creado el: {{hoy}}</h1>
+    <h3>Estas son mis notas de la Universidad:</h3>
+
+    <p>
+        {% for n in notas %}
+        {{n}} <br>
+        {% endfor %}
+    </p>
+</body>
+</html>
